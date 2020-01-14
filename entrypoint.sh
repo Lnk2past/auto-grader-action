@@ -1,3 +1,3 @@
 #!/bin/sh -l
-msg=$(ls -la)
+msg=$(make)
 echo ::set-output name=msg::$msg
