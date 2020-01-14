@@ -1,7 +1,5 @@
 #!/bin/sh -l
 
- > report.txt
-
 build_output=$( make 2>&1)
 if [ $? -ne 1 ]
 then
