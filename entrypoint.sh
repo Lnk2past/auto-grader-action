@@ -1,5 +1,7 @@
 #!/bin/sh -l
 
+cd $GITHUB_WORKSPACE
+
 build_output=$( make 2>&1)
 if [ $? -ne 1 ]
 then
