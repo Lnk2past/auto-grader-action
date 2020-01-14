@@ -1,3 +1,3 @@
 #!/bin/sh -l
-set -e
+set +e
 msg=$( make test 2>&1)
