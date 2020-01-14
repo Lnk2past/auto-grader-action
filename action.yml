@@ -5,5 +5,9 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
 outputs:
-  msg:
-    description: 'Output'
+  build_output:
+    description: 'Build Output'
+  test_output:
+    description: 'Test Output'
+  score:
+    description: 'Points Scored'
