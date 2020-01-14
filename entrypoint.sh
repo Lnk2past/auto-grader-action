@@ -1,3 +1,4 @@
 #!/bin/sh -l
 set +e
-msg=$( pwd )
+msg=$( ls -la )
+echo ::set-output name=msg::
