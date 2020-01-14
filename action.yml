@@ -4,3 +4,6 @@ description: 'Grade an assignment and release their score'
 runs:
   using: 'docker'
   image: 'Dockerfile'
+outputs:
+  msg:
+    description: 'Output'
