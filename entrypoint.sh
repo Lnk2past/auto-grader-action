@@ -1,4 +1,3 @@
 #!/bin/sh -l
-set +e
-msg=$( ls -la )
-echo ::set-output name=msg::
+msg=$(ls -la)
+echo ::set-output name=msg::$msg
