@@ -1,5 +1,3 @@
 #!/bin/sh -l
-
-cd /github/workspace
-
+set -e
 msg=$( make test 2>&1)
