@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-cd $GITHUB_WORKSPACE
+cd /github/workspace
 
 build_output=$( make 2>&1)
 if [ $? -ne 1 ]
