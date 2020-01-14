@@ -21,3 +21,4 @@ fi
 echo ::set-output name=build_output::$build_output
 echo ::set-output name=test_output::$test_output
 echo ::set-output name=score::'15'
+exit 0
