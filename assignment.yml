@@ -3,5 +3,5 @@ steps:
     command: make
     points: 7.5
   - name: Test
-    command: make teset
+    command: make test
     points: 7.5
