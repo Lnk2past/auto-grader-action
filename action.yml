@@ -18,4 +18,3 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.repo-token }}
-    - ${{ inputs.repo-name }}
