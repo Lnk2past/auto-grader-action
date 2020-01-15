@@ -1,6 +1,5 @@
 from subprocess import run, PIPE, STDOUT
-import actionspytoolkit as atk
-
+from actionspytoolkit import logging
 score = 0.0
 build_output = ''
 test_output = ''
@@ -14,6 +13,6 @@ if proc.returncode == 0:
   if proc.returncode == 0:
     score += 7.5
 
-atk.logging.set_output('build_output', build_output)
-atk.logging.set_output('test_output', test_output)
-atk.logging.set_output('score', score)
+logging.set_output('build_output', build_output)
+logging.set_output('test_output', test_output)
+logging.set_output('score', score)
