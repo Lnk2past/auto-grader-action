@@ -4,6 +4,9 @@ description: 'Grade an assignment and release their score'
 runs:
   using: 'docker'
   image: 'Dockerfile'
+inputs: 
+  repo-token:
+    description: 'The GITHUB_TOKEN secret'
 outputs:
   build_output:
     description: 'Build Output'
