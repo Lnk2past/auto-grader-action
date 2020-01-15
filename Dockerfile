@@ -4,7 +4,9 @@ LABEL "repository"="https://github.com/Lnk2past/auto-grader-action"
 LABEL "homepage"="https://github.com/Lnk2past/auto-grader-action"
 LABEL "maintainer"="Lnk2past <Lnk2past@gmail.com>"
 
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod 777 /entrypoint.sh
+RUN pip3 install actionspytoolkit
 
-ENTRYPOINT ["/entrypoint.sh"]
+COPY entrypoint.py /entrypoint.py
+RUN chmod 777 /entrypoint.py
+
+ENTRYPOINT ["python3", "/entrypoint.py"]
