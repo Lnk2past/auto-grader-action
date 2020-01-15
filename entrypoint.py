@@ -30,12 +30,10 @@ repo = gh.get_repo(os.environ['GITHUB_REPOSITORY'])
 issue = None
 for i in repo.get_issues():
   if i.title == 'Grade':
-    i.unlock()
     i.edit(body=body)
-    i.lock('resolved')
     break
 else:
   repo.create_issue(title=configuration['issue'].get('name'),
                     body=body,
                     labels=configuration['issue'].get('labels', []),
-                    assignees=configuration['issue'].get('assignees', [])).lock('resolved')
+                    assignees=configuration['issue'].get('assignees', []))
