@@ -38,4 +38,4 @@ else:
   repo.create_issue(title=configuration['issue'].get('name'),
                     body=body,
                     labels=configuration['issue'].get('labels', []),
-                    assignees=configuration['issue'].get('assignees', []])).lock('resolved')
+                    assignees=configuration['issue'].get('assignees', [])).lock('resolved')
