@@ -25,5 +25,12 @@ logging.set_output('score', score)
 
 gh = Github(sys.argv[1])
 repo = gh.get_repo(os.environ['GITHUB_REPOSITORY'])
-body = '## Score:\n{}/15\n## Build Output:\n{}\n## Test Output:\n```{}```'.format(score, build_output, test_output)
-repo.create_issue(title="Grade", body=body, labels=['grade'])
+body = '## Score:\n{}/15\n## Build Output:\n```{}```\n## Test Output:\n```{}```'.format(score, build_output, test_output)
+
+issue = None
+for i in repo.get_issues():
+  if i.title == 'Grade':
+    i.edit(body=body)
+    break
+else:
+  repo.create_issue(title="Grade", body=body, labels=['grade'])
