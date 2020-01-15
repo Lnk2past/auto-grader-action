@@ -22,7 +22,7 @@ for step in configuration['steps']:
     logging.warning(f'Step {step["name"]} failed!')
     break
 
-body = f'## Score:\n{points}/{total_points}\n' + body
+body = f'## Score:\n```{points}/{total_points}```\n' + body
 
 gh = Github(sys.argv[1])
 repo = gh.get_repo(os.environ['GITHUB_REPOSITORY'])
