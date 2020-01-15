@@ -12,7 +12,6 @@ points = 0
 total_points = 0
 
 for step in configuration['steps']:
-  logging.warning(f'Running Step {step["name"]}')
   command = step['command'].split()
   total_points += step['points']
   proc = run(command, stdout=PIPE, stderr=STDOUT)
@@ -20,6 +19,7 @@ for step in configuration['steps']:
   if proc.returncode == 0:
     points += step['points']
   else:
+    logging.warning(f'Step {step["name"]} failed!')
     break
 
 body = f'## Score:\n{points}/{total_points}\n' + body
