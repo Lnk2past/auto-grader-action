@@ -30,7 +30,7 @@ repo = gh.get_repo(os.environ['GITHUB_REPOSITORY'])
 issue = None
 for i in repo.get_issues():
   if i.title == 'Grade':
-    i.unlock('Autolock')
+    i.unlock()
     i.edit(body=body)
     i.lock('Autolock')
     break
