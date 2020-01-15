@@ -7,8 +7,7 @@ score = 0.0
 build_output = ''
 test_output = ''
 
-logging.debug(sys.argv[1])
-logging.debug(sys.argv[2])
+logging.debug(f'{sys.argv}')
 
 proc = run(['make'], stdout=PIPE, stderr=STDOUT)
 build_output = f'{proc.stdout.decode()}'
