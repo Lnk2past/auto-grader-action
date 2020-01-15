@@ -32,7 +32,7 @@ for i in repo.get_issues():
   if i.title == 'Grade':
     i.unlock()
     i.edit(body=body)
-    i.lock('Autolock')
+    i.lock('resolved')
     break
 else:
-  repo.create_issue(title="Grade", body=body, labels=['grade']).lock('Autolock')
+  repo.create_issue(title="Grade", body=body, labels=['grade']).lock('resolved')
