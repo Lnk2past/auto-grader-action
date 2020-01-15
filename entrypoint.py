@@ -12,6 +12,7 @@ points = 0
 total_points = 0
 
 for step in configuration['steps']:
+  logging.warning(f'Running Step {step["name"]}')
   command = step['command'].split()
   total_points += step['points']
   proc = run(command, stdout=PIPE, stderr=STDOUT)
