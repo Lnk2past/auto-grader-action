@@ -2,7 +2,7 @@ import os, sys
 import yaml
 from subprocess import run, PIPE, STDOUT
 from actionspytoolkit import logging
-from github import Github
+from github import Github, NotSet
 
 
 configuration = yaml.load(open('/assignment.yml'), Loader=yaml.FullLoader)
@@ -35,4 +35,7 @@ for i in repo.get_issues():
     i.lock('resolved')
     break
 else:
-  repo.create_issue(title="Grade", body=body, labels=['grade']).lock('resolved')
+  repo.create_issue(title=configuration['issue'].get('name'),
+                    body=body,
+                    labels=configuration['issue'].get('labels', NotSet),
+                    assignees=configuration['issue'].get('assignees', NotSet)).lock('resolved')

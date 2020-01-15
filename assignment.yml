@@ -5,3 +5,9 @@ steps:
   - name: Test
     command: make test
     points: 7.5
+issue:
+  name: Grade
+  labels:
+    - grade
+  assignees:
+    - Lnk2past
