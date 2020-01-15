@@ -1,28 +1,30 @@
 import os, sys
+import yaml
 from subprocess import run, PIPE, STDOUT
 from actionspytoolkit import logging
 from github import Github
 
-score = 0.0
-build_output = ''
-test_output = ''
 
-proc = run(['make'], stdout=PIPE, stderr=STDOUT)
-build_output = f'{proc.stdout.decode()}'
-if proc.returncode == 0:
-  score += 7.5
-  proc = run(['make', 'test'], stdout=PIPE, stderr=STDOUT)
-  test_output = f'{proc.stdout.decode()}'
+configuration = yaml.load(open('/assignment.yml'), Loader=yaml.FullLoader)
+
+body = ''
+points = 0
+total_points = 0
+
+for step in configuration['steps]']:
+  name = step['name']
+  command = step['command'].split()
+  total_points += step['points']
+  proc = run(command, stdout=PIPE, stderr=STDOUT)
+  body += f'## {} Output:\n```{proc.stdout.decode()}```\n'
   if proc.returncode == 0:
-    score += 7.5
+    points += step['points']
+  else break
 
-logging.set_output('build_output', build_output)
-logging.set_output('test_output', test_output)
-logging.set_output('score', score)
+body = f'## Score:\n{points}/{total_points}\n' + body
 
 gh = Github(sys.argv[1])
 repo = gh.get_repo(os.environ['GITHUB_REPOSITORY'])
-body = '## Score:\n{}/15.0\n## Build Output:\n```{}```\n## Test Output:\n```{}```'.format(score, build_output, test_output)
 
 issue = None
 for i in repo.get_issues():

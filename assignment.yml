@@ -1,0 +1,7 @@
+steps:
+  - name: Build
+    command: make
+    points: 7.5
+  - name: Test
+    command: make teset
+    points: 7.5
