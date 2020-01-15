@@ -19,7 +19,8 @@ for step in configuration['steps]']:
   body += f'## {} Output:\n```{proc.stdout.decode()}```\n'
   if proc.returncode == 0:
     points += step['points']
-  else break
+  else:
+    break
 
 body = f'## Score:\n{points}/{total_points}\n' + body
 
