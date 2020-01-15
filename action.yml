@@ -1,9 +1,6 @@
 # action.yml
 name: 'Auto Grader'
 description: 'Grade an assignment and release their score'
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
 inputs: 
   repo-token:
     description: 'The GITHUB_TOKEN secret'
@@ -16,3 +13,9 @@ outputs:
     description: 'Test Output'
   score:
     description: 'Points Scored'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.repo-token }}
+    - ${{ inputs.repo-name }}
