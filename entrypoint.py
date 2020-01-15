@@ -12,11 +12,10 @@ points = 0
 total_points = 0
 
 for step in configuration['steps]']:
-  name = step['name']
   command = step['command'].split()
   total_points += step['points']
   proc = run(command, stdout=PIPE, stderr=STDOUT)
-  body += f'## {} Output:\n```{proc.stdout.decode()}```\n'
+  body += f'## {step["name"]} Output:\n```{proc.stdout.decode()}```\n'
   if proc.returncode == 0:
     points += step['points']
   else:
