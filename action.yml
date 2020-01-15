@@ -7,6 +7,8 @@ runs:
 inputs: 
   repo-token:
     description: 'The GITHUB_TOKEN secret'
+  repo-name:
+    description: 'The repository name'
 outputs:
   build_output:
     description: 'Build Output'
