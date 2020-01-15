@@ -7,9 +7,6 @@ score = 0.0
 build_output = ''
 test_output = ''
 
-logging.warning(f'ARGV: {sys.argv}')
-logging.warning(f'ENV: {os.environ["GITHUB_REPOSITORY"]}')
-
 proc = run(['make'], stdout=PIPE, stderr=STDOUT)
 build_output = f'{proc.stdout.decode()}'
 if proc.returncode == 0:
