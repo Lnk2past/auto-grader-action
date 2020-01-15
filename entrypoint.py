@@ -1,4 +1,4 @@
-import sys
+import os, sys
 from subprocess import run, PIPE, STDOUT
 from actionspytoolkit import logging
 from github import Github
@@ -24,6 +24,6 @@ logging.set_output('test_output', test_output)
 logging.set_output('score', score)
 
 gh = Github(sys.argv[1])
-repo = gh.get_repo(sys.argv[2])
+repo = gh.get_repo(os.environ['GITHUB_REPOSITORY'])
 body = '## Score:\n{}/15\n## Build Output:\n{}\n## Test Output:\n```{}```'.format(score, build_output, test_output)
 repo.create_issue(title="Grade", body=body, labels=['grade'])
